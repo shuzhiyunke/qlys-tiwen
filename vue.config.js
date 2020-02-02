@@ -12,12 +12,9 @@ module.exports = {
       errors: true
     },
     proxy: {
-      '/api': {
+      '/register': {
         target: 'http://39.106.63.99:8084',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
+        changeOrigin: true
       }
     }
   },

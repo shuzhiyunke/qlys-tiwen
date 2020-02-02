@@ -80,7 +80,7 @@ service.interceptors.request.use((config) => {
   }
   config = { ...config, ...options }
   config.method = options.methods || 'POST'
-  config.url = '/api' + config.url
+  config.url = config.url
   return config
 })
 

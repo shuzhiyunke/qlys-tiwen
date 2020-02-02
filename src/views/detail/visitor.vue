@@ -2,7 +2,7 @@
   <div class="visitor">
     <span class='title'>来访信息</span>
     <van-cell-group>
-      <van-field input-align='right' label='来访日期' v-model="userForm.comeTime" :formatter="$dayjs" readonly="readonly"/>
+      <van-field input-align='right' label='来访日期' v-model="userForm.comeTime" readonly="readonly"/>
       <van-field input-align='right' label='来访姓名' v-model="userForm.visitorName" readonly="readonly"/>
       <van-field input-align='right' label='手机号码' v-model="userForm.phone" readonly="readonly"/>
       <van-field input-align='right' label='从何处来' v-model="userForm.visitorFrom" readonly="readonly"/>
@@ -59,9 +59,8 @@ export default {
       try {
         let res = await visitorDetail({ id: this.$route.params.id })
         this.userForm = { ...res[0] }
-        console.log(res)
+        this.userForm.comeTime = this.$dayjs(this.userForm.comeTime).format('YYYY-MM-DD HH:mm:ss')
       } catch (e) {
-        console.log(e)
         Toast.fail('查询失败')
       }
     },
@@ -73,7 +72,6 @@ export default {
           Toast.success('提交成功')
         }
       } catch (e) {
-        console.log(e)
         Toast.fail('添加失败')
       }
     }
