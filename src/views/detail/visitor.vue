@@ -2,11 +2,11 @@
   <div class="visitor">
     <span class='title'>来访信息</span>
     <van-cell-group>
-      <van-field input-align='right' label='来访日期' v-model="userForm.startTime" readonly="readonly"/>
+      <van-field input-align='right' label='来访日期' v-model="userForm.comeTime" readonly="readonly"/>
       <van-field input-align='right' label='来访姓名' v-model="userForm.name" readonly="readonly"/>
-      <van-field input-align='right' label='手机号码' v-model="userForm.tel" readonly="readonly"/>
-      <van-field input-align='right' label='从何处来' v-model="userForm.from" readonly="readonly"/>
-      <van-field input-align='right' label='拜访人员' v-model="userForm.visitStaff" readonly="readonly"/>
+      <van-field input-align='right' label='手机号码' v-model="userForm.phone" readonly="readonly"/>
+      <van-field input-align='right' label='从何处来' v-model="userForm.visitorFrom" readonly="readonly"/>
+      <van-field input-align='right' label='拜访人员' v-model="userForm.visitorCall" readonly="readonly"/>
       <van-field input-align='right' label='何时离开' v-model="userForm.endTime" readonly="readonly"/>
       <van-field required input-align='right' label='体温' v-model="userForm.temperature" placeholder='请输入体温'>
         <template slot='right-icon'>
@@ -42,15 +42,15 @@ export default {
       minTime: new Date(),
       currentTime: null,
       userForm: {
-        userType: 1, // 1访客 2员工,
-        startTime: this.$dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss')
+        visitorName: 1, // 1访客 2员工,
+        comeTime: this.$dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss')
       }
     }
   },
   methods: {
     endTimeChange (e) {
       let endTimeArr = e.getValues()
-      this.userForm.endTime = `${endTimeArr[0]}-${endTimeArr[1]}-${endTimeArr[2]}  ${endTimeArr[3]}:${endTimeArr[4]}:00`
+      this.userForm.leaveTime = `${endTimeArr[0]}-${endTimeArr[1]}-${endTimeArr[2]}  ${endTimeArr[3]}:${endTimeArr[4]}:00`
     }
   }
 }

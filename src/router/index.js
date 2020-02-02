@@ -22,7 +22,7 @@ const routes = [
   },
   {
     path: '/detail/visitor/:id',
-    name: 'securityStaff',
+    name: 'detailVisitor',
     component: () => import(/* webpackChunkName: "about" */ '@/views/detail/visitor.vue'),
     meta: {
       title: '访客详情'
@@ -30,7 +30,7 @@ const routes = [
   },
   {
     path: '/detail/member/:id',
-    name: 'securityStaff',
+    name: 'detailMember',
     component: () => import(/* webpackChunkName: "about" */ '@/views/detail/member.vue'),
     meta: {
       title: '员工详情'

@@ -91,10 +91,7 @@ service.interceptors.response.use(
     }
   },
   (err) => {
-    Toast({
-      message: '服务器异常',
-      type: 'error'
-    })
+    Toast.fail('服务器异常')
     return Promise.reject(err)
   }
 )

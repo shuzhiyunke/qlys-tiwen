@@ -10,7 +10,6 @@ import VueWechatTitle from 'vue-wechat-title'
 
 Vue.use(VueWechatTitle)
 Vue.use(Vant)
-Vue.prototype.$toast = Vant.Toast
 Vue.prototype.$dayjs = dayjs
 Vue.filter('dayjs', function (value, formatString) {
   formatString = formatString || 'YYYY-MM-DD HH:mm:ss'

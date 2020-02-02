@@ -10,21 +10,21 @@
         <van-cell v-for="(item,index) in list" :key="index"  value="详细信息" is-link :url='item.type===1?"/detail/member/"+item.id:"/detail/visitor/"+item.id'>
             <template v-if='item.type===1'>
               <template slot='title'>
-                <span class='name-title'>{{item.name}}</span>
+                <span class='name-title'>{{item.visitorName}}</span>
                 <van-tag type="primary">员工</van-tag>
               </template>
               <template slot='label'>
-                <van-cell class='small-cell' title="手机号码" :value="item.tel"></van-cell>
-                <van-cell class='small-cell' title="所属部门" :value="item.department"></van-cell>
+                <van-cell class='small-cell' title="手机号码" :value="item.phone"></van-cell>
+                <van-cell class='small-cell' title="所属部门" :value="item.dept"></van-cell>
               </template>
             </template>
             <template v-else>
               <template slot='title'>
-                <span class='name-title'>{{item.name}}</span>
+                <span class='name-title'>{{item.visitorName}}</span>
                 <van-tag type="danger">访客</van-tag>
               </template>
               <template slot='label'>
-                <van-cell class='small-cell' title="手机号码" :value="item.tel"></van-cell>
+                <van-cell class='small-cell' title="手机号码" :value="item.phone"></van-cell>
                 <van-cell class='small-cell' title="拜访人员" :value="item.visitStuff"></van-cell>
                 <van-cell class='small-cell' title="来访日期" :value="item.time | dayjs"></van-cell>
               </template>
@@ -48,11 +48,11 @@ export default {
       typeMap: {
         1: {
           color: 'primary',
-          name: '员工'
+          visitorName: '员工'
         },
         2: {
           color: 'danger',
-          name: '访客'
+          visitorName: '访客'
         }
       }
     }
@@ -68,10 +68,10 @@ export default {
         for (let i = 0; i < 10; i++) {
           this.list.push({
             id: 'bububuuububuub',
-            name: '张艺谋',
+            visitorName: '张艺谋',
             visitStuff: '徐峥',
-            tel: '13543432233',
-            department: '综合部',
+            phone: '13543432233',
+            dept: '综合部',
             type: i % 2 ? 1 : 2,
             time: new Date()
           })
