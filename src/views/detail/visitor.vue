@@ -59,12 +59,16 @@ export default {
       try {
         let res = await visitorDetail({ id: this.$route.params.id })
         this.userForm = { ...res[0] }
-        this.userForm.comeTime = this.$dayjs(this.userForm.comeTime).format('YYYY-MM-DD HH:mm:ss')
+        this.userForm.comeTime = this.userForm.comeTime ? this.$dayjs(this.userForm.comeTime).format('YYYY-MM-DD HH:mm:ss') : '-'
+        this.userForm.leaveTime = this.userForm.comeTime ? this.$dayjs(this.userForm.leaveTime).format('YYYY-MM-DD HH:mm:ss') : '-'
       } catch (e) {
         Toast.fail('查询失败')
       }
     },
     async addTemperature () {
+      if (this.userForm.temperature < 35 || this.userForm.temperature > 45 || !(/^\d*\.{0,1}\d{0,1}$/.test(this.userForm.temperature))) {
+        return Toast('请填写正确的温度')
+      }
       try {
         let res = await addTemperature({ id: this.$route.params.id, temperature: this.userForm.temperature })
         if (res === null) {

@@ -8,7 +8,7 @@
         @load="onLoad"
       >
         <van-cell v-for="(item,index) in list" :key="index" value="详细信息" is-link
-                  :url='item.visitorType==="1"?"/detail/member/"+item.id:"/detail/visitor/"+item.id'>
+                  :url='item.visitorType==="1"?"/#/detail/member/"+item.id:"/#/detail/visitor/"+item.id'>
           <template v-if='item.visitorType==="1"'>
             <template slot='title'>
               <span class='name-title'>{{item.visitorName||'--'}}</span>
