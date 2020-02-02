@@ -33,6 +33,14 @@ service.interceptors.request.use((config) => {
       options.url = options.url + '?' + queryString
       break
     case 'POST':
+      for (let i in options.data) {
+        if (typeof options.data[i] === 'object') {
+          queryString += i + '=' + JSON.stringify(options.data[i]) + '&'
+        } else {
+          queryString += i + '=' + options.data[i] + '&'
+        }
+      }
+      options.url = options.url + '?' + queryString
       options.headers['Content-Type'] = 'application/json'
       break
     case 'COMPLEX_POST':

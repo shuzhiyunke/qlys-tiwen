@@ -74,6 +74,7 @@ export default {
       departmentPop: false,
       minTime: new Date(),
       currentTime: null,
+      disabledBtn: false,
       userForm: {
         visitorType: 1, // 1员工 2访客,
         comeTime: this.$dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss')
